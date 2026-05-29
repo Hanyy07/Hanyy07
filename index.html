@@ -16,10 +16,42 @@
             <button id="addBtn">Přidat</button>
         </div>
 
+        <div class="task-options">
+            <div class="option-group">
+                <label for="prioritySelect">Priorita:</label>
+                <select id="prioritySelect">
+                    <option value="low">Nízká</option>
+                    <option value="medium" selected>Střední</option>
+                    <option value="high">Vysoká</option>
+                </select>
+            </div>
+            <div class="option-group">
+                <label for="categorySelect">Kategorie:</label>
+                <select id="categorySelect">
+                    <option value="personal">Osobní</option>
+                    <option value="work">Práce</option>
+                    <option value="shopping">Nákupy</option>
+                    <option value="health">Zdraví</option>
+                </select>
+            </div>
+            <div class="option-group">
+                <label for="deadlineInput">Deadline:</label>
+                <input type="date" id="deadlineInput">
+            </div>
+        </div>
+
         <div class="filters">
             <button class="filter-btn active" data-filter="all">Vše</button>
             <button class="filter-btn" data-filter="active">Aktivní</button>
             <button class="filter-btn" data-filter="completed">Hotové</button>
+        </div>
+
+        <div class="category-filters">
+            <button class="category-btn active" data-category="all">Všechny</button>
+            <button class="category-btn" data-category="personal">Osobní</button>
+            <button class="category-btn" data-category="work">Práce</button>
+            <button class="category-btn" data-category="shopping">Nákupy</button>
+            <button class="category-btn" data-category="health">Zdraví</button>
         </div>
 
         <ul id="taskList"></ul>
