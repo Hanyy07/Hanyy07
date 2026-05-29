@@ -1,4 +1,14 @@
-let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+function loadTasks() {
+    try {
+        const raw = localStorage.getItem('tasks');
+        const parsed = raw ? JSON.parse(raw) : [];
+        return Array.isArray(parsed) ? parsed : [];
+    } catch {
+        return [];
+    }
+}
+
+let tasks = loadTasks();
 let currentFilter = 'all';
 
 const taskInput = document.getElementById('taskInput');
@@ -51,7 +61,7 @@ function addTask() {
     if (text === '') return;
 
     const newTask = {
-        id: Date.now(),
+        id: `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
         text: text,
         completed: false
     };

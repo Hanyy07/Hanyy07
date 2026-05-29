@@ -4,6 +4,18 @@
     box-sizing: border-box;
 }
 
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -46,8 +58,16 @@ h1 {
 }
 
 #taskInput:focus {
-    outline: none;
     border-color: #667eea;
+}
+
+#taskInput:focus-visible,
+#addBtn:focus-visible,
+.filter-btn:focus-visible,
+.delete-btn:focus-visible,
+#clearCompleted:focus-visible {
+    outline: 3px solid #1a73e8;
+    outline-offset: 2px;
 }
 
 #addBtn {
@@ -141,7 +161,8 @@ h1 {
     transition: opacity 0.2s, background 0.2s;
 }
 
-.task-item:hover .delete-btn {
+.task-item:hover .delete-btn,
+.task-item:focus-within .delete-btn {
     opacity: 1;
 }
 
